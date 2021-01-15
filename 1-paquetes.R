@@ -13,9 +13,9 @@ if(sum(verificacion_1) != length(packages_1)){
 
 # Cargue ---------------------------------------------
 
-library(readxl)
-library(tools)
-library(tidyverse)
+suppressMessages(library(readxl))
+suppressMessages(library(tools))
+suppressMessages(library(tidyverse))
 
 
 if(exists("packages") == F){
@@ -27,6 +27,6 @@ if(exists("packages") == F){
     install.packages(packages[verificacion_2 == F])
   }else{
     packages_2 <- packages
-    lapply(packages_2, library, character.only = TRUE)
+    lapply(packages, suppressMessages(library), character.only = TRUE)
   }
 }
