@@ -19,14 +19,14 @@ suppressMessages(library(tidyverse))
 
 
 if(exists("packages") == F){
-  cat("No se cargar·n paquetes adicionales")
+  cat("No se cargar√°n paquetes adicionales")
 } else{
   
   verificacion_2 <- packages%in%instalados
   if(sum(verificacion_2) != length(packages)){
     install.packages(packages[verificacion_2 == F])
   }else{
-    packages_2 <- packages
-    lapply(packages, suppressMessages(library), character.only = TRUE)
+    #packages_2 <- packages
+    lapply(packages, library, character.only = TRUE)
   }
 }
